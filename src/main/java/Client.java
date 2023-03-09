@@ -7,7 +7,7 @@ import java.net.Socket;
 
 public class Client {
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws IOException {
         int port = 8089;
         try (Socket clientSocket = new Socket(InetAddress.getLocalHost(), port);
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -17,9 +17,6 @@ public class Client {
 
             String resp = in.readLine();
             System.out.println(resp);
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
         }
 
     }
